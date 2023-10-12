@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p>Загрузка, пожалуйста ожидайте...</p>
+        <script>
+            document.write('Hello, world!')
+            console.log('Hello, developers!')
+
+            const numberToGuess = Math.floor(Math.random()*1000);
+            console.log('Загадано:', numberToGuess);
+
+            let i = 5
+            while (i >= 1) {
+                let numberFromUser = prompt(`Угадайте число (от 0 до 999) за ${i} попыток:`);
+                console.log('Вы ввели:', numberFromUser)
+                console.log('Вы ввели+:', +numberFromUser)
+
+                if (numberFromUser === 'q') {
+                    break
+                }
+
+                if (isNaN(numberFromUser) || numberFromUser.trim() === "" || !(+numberFromUser >= 0 && +numberFromUser <= 999)) {
+                    alert('Ошибка! Введите число от 0 до 999.')
+                } else if (+numberFromUser === numberToGuess) {
+                    alert('Поздравляю! Вы угадали.')
+                    break
+                } else {
+                    alert(`Вы не угадали ((( у вас осталось ${i-1} попыток.`)
+                    i = i - 1
+                }
+            }
+            alert('Попытки закончились (((')
+        </script>
+    </body>
+</html>
